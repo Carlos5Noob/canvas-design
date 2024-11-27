@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 9</title>
+</head>
+<body>
+    
+    <canvas id="canva" width="300" height="200" style="border: 1px black solid;"></canvas>
+
+
+    <script>
+        let canva = document.getElementById("canva");
+        let ctx = canva.getContext("2d");
+
+        ctx.width = 5;
+        ctx.strokeStyle = "blue";
+        ctx.fillStyle = "blue";
+        
+        ctx.beginPath();
+        ctx.moveTo(50, 50);
+        ctx.lineTo(200, 50);
+        ctx.lineTo(50, 150);
+        ctx.lineTo(50, 50);
+        ctx.fill();
+        ctx.closePath();
+        ctx.stroke();
+
+    </script>
+
+</body>
+</html>

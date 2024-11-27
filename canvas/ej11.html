@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <title>Ejercicio 11</title>
+  <style>
+    canvas {
+      border: 1px solid black;
+    }
+  </style>
+</head>
+<body onLoad="dibujarCanvas();">
+
+  <canvas id="miCanvas" width="550" height="350">Su navegador no soporta Canvas.</canvas>
+
+  <script type="text/javascript">
+
+    function dibujarCanvas() {
+      let canvas = document.getElementById('miCanvas');
+      let contexto = canvas.getContext('2d');
+
+      contexto.strokeRect(0, 0, 550, 350);
+
+      let gradienteCielo = contexto.createLinearGradient(0, 0, 0, 175);
+      gradienteCielo.addColorStop(0, 'skyblue');
+      gradienteCielo.addColorStop(1, 'white');
+      contexto.fillStyle = gradienteCielo;
+      contexto.fillRect(0, 0, 550, 175);
+
+      let gradienteSuelo = contexto.createLinearGradient(0, 175, 0, 350);
+      gradienteSuelo.addColorStop(0, 'green');
+      gradienteSuelo.addColorStop(1, 'white');
+      contexto.fillStyle = gradienteSuelo;
+      contexto.fillRect(0, 175, 550, 175);
+
+      contexto.fillStyle = 'brown';
+      contexto.beginPath();
+      contexto.moveTo(100, 175);
+      contexto.lineTo(200, 50);
+      contexto.lineTo(300, 175);
+      contexto.closePath();
+      contexto.fill();
+
+      contexto.beginPath();
+      contexto.moveTo(250, 175);
+      contexto.lineTo(400, 50);
+      contexto.lineTo(550, 175);
+      contexto.closePath();
+      contexto.fill();
+
+      contexto.fillStyle = 'blue';
+      contexto.beginPath();
+      contexto.arc(300, 120, 50, 0, Math.PI * 2);
+      contexto.fill();
+
+      contexto.strokeStyle = 'blue';
+      contexto.lineWidth = 2;
+      for (let i = 260; i < 340; i += 10) {
+        for (let j = 160; j < 300; j += 20) {
+          contexto.beginPath();
+          contexto.moveTo(i, j);
+          contexto.lineTo(i + 10, j + 20);
+          contexto.stroke();
+        }
+      }
+
+      contexto.font = '30px Arial';
+      contexto.fillStyle = 'yellow';
+      contexto.fillText('Canvas', 20, 40);
+    }
+  </script>
+  
+</body>
+</html>
